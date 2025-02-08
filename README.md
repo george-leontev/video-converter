@@ -28,11 +28,3 @@ This may take some time... :)
 - API: <ins>http://localhost:3000</ins>
 
 - UI: <ins>http://localhost:5000</ins>
-
-# Demo:
-
-## Your localhost:3000 API side must be looks like this:
-![alt text](readme_images/api-image.png)
-
-## Your localhost:5000 UI side should look like this after uploading the file:
-![alt text](readme_images/ui-image.png)

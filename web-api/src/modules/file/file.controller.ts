@@ -30,7 +30,7 @@ export class FileController {
                 destination: './uploads',
                 filename: (_, file, cb) => {
                     const uniqueId = uuidv4();
-                    const filename = `${uniqueId}~${Buffer.from(file.originalname, 'latin1').toString()}`;
+                    const filename = `${uniqueId}~${Buffer.from(file.originalname, 'latin1').toString().toLowerCase()}`;
                     cb(null, filename);
                 },
             }),
