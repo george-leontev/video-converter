@@ -1,0 +1,15 @@
+services:
+    web-api:
+        container_name: web-api
+        build:
+            context: ./web-api
+            dockerfile: Dockerfile
+        ports:
+            - 3000:3000
+    web-ui:
+        container_name: web-ui
+        build:
+            context: ./web-ui
+            dockerfile: Dockerfile
+        ports:
+          - 5000:80
