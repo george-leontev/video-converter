@@ -22,7 +22,7 @@ function App() {
             const response = await axios.request({
                 method: 'POST',
                 url: `${routes.host}${routes.uploadedFile}`,
-                headers: { 'Content-Type': 'multipart/form-data' },
+                headers: { 'Content-Type': 'multipart/form-data', 'Accept-Charset': 'utf-8' },
                 data: formData,
             });
 
@@ -55,7 +55,7 @@ function App() {
                 const downloadUrl = URL.createObjectURL(response.data);
                 const link = document.createElement('a');
                 link.href = downloadUrl;
-                link.download = fileName;
+                link.download = fileName.split('~').pop()!;
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
@@ -135,7 +135,7 @@ function App() {
                     >
                         Download
                     </Button>
-                    {outputFileName && <Typography variant="body1">{outputFileName.link}</Typography>}
+                    {outputFileName && <Typography variant="body1">{outputFileName.link.split('~').pop()}</Typography>}
                 </div> : null
             }
 

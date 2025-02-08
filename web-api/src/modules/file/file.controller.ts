@@ -30,7 +30,7 @@ export class FileController {
                 destination: './uploads',
                 filename: (_, file, cb) => {
                     const uniqueId = uuidv4();
-                    const filename = uniqueId + file.originalname;
+                    const filename = `${uniqueId}~${Buffer.from(file.originalname, 'latin1').toString()}`;
                     cb(null, filename);
                 },
             }),
@@ -83,11 +83,17 @@ export class FileController {
             throw new NotFoundException('File not found');
         }
 
-        res.sendFile(filePath, { root: './' }, (err) => {
+        res.sendFile(filePath, { root: './' }, async (err) => {
             if (err) {
+                console.error(`Error sending file: ${err.message}`);
                 res.status(500).send('Error while sending file');
             }
-            void unlink(filePath);
+
+            try {
+                await unlink(filePath);
+            } catch {
+                console.log('File not found');
+            }
         });
     }
 }
