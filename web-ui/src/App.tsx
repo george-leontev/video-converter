@@ -101,14 +101,7 @@ function App() {
             style={{
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '100px',
-                padding: '50px',
-                width: '600px',
-                height: '400px',
-                alignItems: 'center',
-                justifyContent: 'center',
-                border: '1px solid #1d76d2',
-                borderRadius: '10px'
+                gap: '100px'
             }}
         >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -124,7 +117,7 @@ function App() {
                         ref={fileInputRef}
                     />
                     <label htmlFor="file-upload">
-                        <Button variant="contained" component="span" disabled={isUploading} style={{ color: 'white' }}>
+                        <Button variant="contained" component="span" disabled={isUploading} style={{ color: 'white', width: '200px' }}>
                             {isUploading ? 'Uploading...' : 'Choose File'}
                         </Button>
                     </label>
@@ -132,7 +125,7 @@ function App() {
                 {fileName && <Typography variant="body1">{fileName}</Typography>}
             </div>
             {isDownloading ?
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <Button
                         variant="outlined"
                         component="span"
