@@ -30,7 +30,7 @@ export class FileController {
                 destination: './uploads',
                 filename: (_, file, cb) => {
                     const uniqueId = uuidv4();
-                    const filename = uniqueId + file.originalname;
+                    const filename = uniqueId + file.originalname.toLowerCase();
                     cb(null, filename);
                 },
             }),
@@ -44,7 +44,7 @@ export class FileController {
         }),
     )
     async uploadAsync(@UploadedFile() file: Express.Multer.File) {
-        const inputFile = file.path;
+        const inputFile = file.path.toLowerCase();
         const outputFilePath = inputFile.replace('.mov', '.mp4');
         const fileKey = outputFilePath.split('/').pop();
 
