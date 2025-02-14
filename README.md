@@ -1,19 +1,12 @@
 # Video converter .mov → .mp4
 
-## All instructions for launching are made from under Ubuntu. If you test the app from Windows, then you may have to install some technologies such as nodejs and docker
-
-## Clone the repository
-1. Open Visual Studio Code
-2. Open WSL
-3. ```git clone https://github.com/george-leontev/video-converter.git```
-
 ## Install dependencies
 ```npm install```
 
 ## Startup Instructions
 1. Install Docker Engine if necessary: <ins>https://docs.docker.com/engine/install/ubuntu/</ins>
 
-2. Enter the command ```docker-compose up -d```
+2. Enter the command ```docker compose -f 'docker-compose.yaml' up -d --build```
 
 3. Or open docker-compose.yaml file.
 
