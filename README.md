@@ -1,4 +1,4 @@
-# Video converter .mov → .mp4
+# Video converter .mov → .mp4:
 
 ## Install dependencies
 ```npm install```
